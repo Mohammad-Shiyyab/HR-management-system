@@ -1,0 +1,90 @@
+body{
+    margin-top: 0px ;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.nav-div {
+
+    padding-left: 3px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+    background-color: #00B74A;
+
+  }
+
+
+
+
+  .nav-item {
+    color:azure;
+    padding: 13px;
+    text-decoration-line: none;
+    font-size: 20px;
+    text-transform: uppercase;
+
+
+  background:linear-gradient(#222 0 0) no-repeat
+   calc(200% - var(--p,0%)) 100% / 200% var(--p,.08em);
+transition: .3s var(--t,0s), background-position .3s calc(.3s - var(--t,0s));
+  }
+
+  .nav-item:hover {
+    --p: 100%;
+    --t: .3s;
+    color: rgb(255, 255, 255);
+
+  }
+
+  .footer-div{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height : 90px;
+    background-color: #00B74A;
+    color: white;
+    text-align: center;
+    font-family:monospace;
+    font-size: 15px;
+    padding: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 100px;
+    margin-bottom: 3px;
+    margin-top: 5px;
+    padding-bottom: 39px;
+}
+.fa{
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 30px;
+    width: 20px;
+    height: 15px;
+  }
+  .fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+
+  }
+  .fa-fa-github {
+    background: #3B5998;
+    color: white;
+
+  }
+  .fa-linkedin {
+    background: #3B5998;
+    color: white;
+    padding: 15px;
+  }
+
+.footer-list li{
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: inline-block;
+}
