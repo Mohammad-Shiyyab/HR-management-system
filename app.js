@@ -1,6 +1,10 @@
 'use strict';
 
-var allInformation=[];
+var Empinformation=[];
+
+// let form =decoment.getElementById("from");
+// let container = document.getElementById("card-container");
+
 function Empinformation(Employee_id,full_name,department,level,image,salary){
     this.Employee_id=Employee_id;
     this.full_name=full_name;
@@ -8,7 +12,7 @@ function Empinformation(Employee_id,full_name,department,level,image,salary){
     this.level=level;
     this.image=image;
     this.salary=salary;
-    allInformation.push(this);
+    Empinformation.push(this);
 }
 function createRandomId(){
     const random= Math.floor(Math.random()* 9000 +1000)
@@ -66,3 +70,92 @@ function displayAllEmployeeDetails (employee, i){
 for (let i = 0 ; i < empArr.length ; i++){
     displayAllEmployeeDetails(empArr[i], i);
 }
+
+
+
+
+
+// 'use strict';
+
+// const allemplyee=[];
+
+// let form =decoment.getElementById("form");
+// let container = document.getElementById("card-container");
+
+// function HrSystem(employeeId,fullName,department,level,imageUrl){
+
+//     this.employeeId=employeeId;
+//     this.fullName=fullName;
+//     this.department=department;
+//     this.level=level;
+//     this.imageUrl=imageUrl;
+//     this.salary=this.netSalary;
+//     allemplyee.push(this);
+//     }
+
+// HrSystem.prototype.ranSalary = function(){
+//     if(this.level =="Senior") {
+//         return(Math.floor(Math.random() * (2000 - 1500) ) + 1500)
+//     }else if (this.level=="Mid-senior"){
+//         return(Math.floor(Math.random() * (1500 - 1000) ) + 1000)
+//     }else if (this.level=="junior"){
+//         return(Math.floor(Math.random() * (1000 - 500) ) + 500)
+//     }
+// }    
+
+
+// HrSystem.prototype.netSalary = function(){
+//     return(this.ranSalary()) - (this.ranSalary() * 0.075)
+// }
+
+
+// HrSystem.prototype.renderHomePage = function(){
+
+
+//     const div = document.createElement("div");
+//     div.innerHTML=`
+//     <div class ="card">
+//     <img src="${this.imageUrl}" alt="img">
+//     <p>NAME: ${this.fullName}- ID: ${this.employeeId} Department : ${this.department}-Level : ${this.level}-${this.salary}</p>
+
+//     </div>`;
+//     container.appendChild(div);
+// }
+
+
+// const ghaziSamer=new HrSystem(1000,"Ghazi Samer","Administration","Senior","./assets/Ghazi.jpg");
+// const lanaAli=new HrSystem(1001,"Lana Ali","Finance","Senior","./assets/Lana.jpg");
+// const TamaraAyoub=new HrSystem(1002,"Tamara Ayyoub","Marketing","Senior","./assets/Tamara.jpg");
+// const safiWalid=new HrSystem(1003,"Safi Waleed","Administration","Mid Senior","./assets/Safi.jpg");
+// const omarZaid=new HrSystem(1004,"Omar Zaid","Development","Senior","./assets/Omar.jpg");
+// const ranaSaleh=new HrSystem(1005,"Rana Saleh","Development","Junior","./assets/Rana.jpg");
+// const hadiAhmad=new HrSystem(1006,"Hadi Ahmad","Finance","Mid Senior","./assets/Hadi.jpg");
+
+
+
+// allemplyeeCaller(allemplyee);
+
+
+// function allemplyeeCaller(allemplyee){
+//     for(let i=0; i < allemplyee.length;i++){
+//         allemplyee[i].renderHomePage();
+//     }
+// }
+
+
+
+// form.addEventListener("submit".eventHandler);
+
+
+// function eventHandler(event){
+//     event.preventDefault();
+//     let fullName = (event.target.fullname.value);
+//     let Department = (event.target.depart.value);
+//     let level = (event.target.level.value);
+//     let ImageUrl = (event.target.img.value);
+
+//     console.log(fullName,Department,level,ImageUrl)
+// }
+
+// let newObject = new HrSystem(1100, fullName,Department,Level,ImageUrl)
+// newObject.renderHomePage()
