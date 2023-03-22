@@ -31,20 +31,9 @@ HrSystem.prototype.netSalary = function(){
 }
 
 HrSystem.prototype.renderHomePage = function(){
-    var head = document.getElementsByTagName('head')[0];
- 
-    // Create new link Element
-    var link = document.createElement('link');
-
-    // set the attributes for link element
-    link.rel = 'stylesheet';
- 
-    link.href = 'index.css';
-
-    // Append link element to HTML head
-    head.appendChild(link);
+    
     const el = document.getElementById('card-container');
-
+    
     const div = document.createElement("div");
     div.innerHTML=`
     <div style="display: flex; flex-wrap: wrap;justify-content: space-between;flex-direction:'row'">
@@ -57,33 +46,20 @@ HrSystem.prototype.renderHomePage = function(){
     </div>
     </div>
     `;
+   
     el.appendChild(div)
+    console.log(div)
+    
 }
 
 
-const ghaziSamer=new HrSystem(1000,"Ghazi Samer","Administration","Senior","Ghazi.jpg");
-const lanaAli=new HrSystem(1001,"Lana Ali","Finance","Senior","Lana.jpg");
-const TamaraAyoub=new HrSystem(1002,"Tamara Ayyoub","Marketing","Senior","Tamara.jpg");
-const safiWalid=new HrSystem(1003,"Safi Waleed","Administration","Mid-senior","Safi.jpg");
-const omarZaid=new HrSystem(1004,"Omar Zaid","Development","Senior","Omar.jpg");
-const ranaSaleh=new HrSystem(1005,"Rana Saleh","Development","junior","Rana.jpg");
-const hadiAhmad=new HrSystem(1006,"Hadi Ahmad","Finance","Mid-senior","Hadi.jpg");
-
-
-
-allemplyeeCaller(allemplyee);
-
-
-function allemplyeeCaller(allemplyee){
-    for(let i=0; i < allemplyee.length;i++){
-        allemplyee[i].renderHomePage();
-    }
-}
-
-
-
-form.addEventListener("submit" ,eventHandler);
-
+const ghaziSamer=new HrSystem(generateId(),"Ghazi Samer","Administration","Senior","Ghazi.jpg");
+const lanaAli=new HrSystem(generateId(),"Lana Ali","Finance","Senior","Lana.jpg");
+const TamaraAyoub=new HrSystem(generateId(),"Tamara Ayyoub","Marketing","Senior","Tamara.jpg");
+const safiWalid=new HrSystem(generateId(),"Safi Waleed","Administration","Mid-senior","Safi.jpg");
+const omarZaid=new HrSystem(generateId(),"Omar Zaid","Development","Senior","Omar.jpg");
+const ranaSaleh=new HrSystem(generateId(),"Rana Saleh","Development","junior","Rana.jpg");
+const hadiAhmad=new HrSystem(generateId(),"Hadi Ahmad","Finance","Mid-senior","Hadi.jpg")
 
 function eventHandler(event){
     event.preventDefault();
@@ -92,8 +68,44 @@ function eventHandler(event){
     let level = (event.target.level.value);
     let imageUrl = (event.target.imag.value);
 
-    console.log(fullName,department,level,imageUrl)
+    let newObject = new HrSystem(generateId(), fullName,department,level,imageUrl)
     
-    let newObject = new HrSystem(1100, fullName,department,level,imageUrl)
     newObject.renderHomePage()
+saveData(newObject)
+
 }
+
+
+
+
+
+form.addEventListener("submit" ,eventHandler);
+
+function saveData(data) {
+    let stringArr = JSON.stringify(data);
+    localStorage.setItem('employees2Storage', stringArr);
+}
+let employees2StorageArr;
+  
+
+function generateId(){
+    var val = Math.floor(1000 + Math.random() * 9000);
+    return val
+}
+
+if (localStorage.getItem('employees2Storage')){
+    let retrievedArr = JSON.parse(localStorage.getItem('employees2Storage'));
+    const user = new HrSystem(`${retrievedArr.employeeId}`,`${retrievedArr.fullName}`,`${retrievedArr.department}`,`${retrievedArr.level}`,`${retrievedArr.imageUrl}`);
+}
+
+allemplyeeCaller(allemplyee);
+
+
+function allemplyeeCaller(allemplyee){
+    for(let i=0; i < allemplyee.length;i++){
+        const employee = allemplyee[i]
+        employee.renderHomePage();
+        
+    }
+}
+
